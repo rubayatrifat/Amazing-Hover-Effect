@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="modes">
+        <div class="single-mode">
+            <img src="img/moon.png" class="icon">
+            <h3 class="go-mood"> - Go Night Mode</h3>
+        </div>
+        <!-- <div class="single-mode">
+            <img src="img/combination.png" class="icon icon-2" style="margin-top: 10px;">
+            <h3 class="go-mood go-mood-2" style="margin-top: -6; margin-left: 0;"> - Go Cobinator Mode</h3>
+        </div> -->
+    </div>
+
+    <div class="single-product">
+        <div class="about-product">
+            <img src="img/logo.png">
+            <h1>Pespsi</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea tempore minus aspernatur accusantium architecto. Vero, voluptates, eaque laudantium est optio alias odio cum voluptatem maxime a quisquam saepe. Nam tempore </p>
+            <a href="#">buy now</a>
+        </div>
+        <div class="product-img">
+            <img src="img/nel.png" class="pepsi-bottle">
+            <h4>PEPSI</h4>
+        </div>
+    </div>
+
+    <script>
+
+        const icon = document.querySelector('.icon') 
+        const icon2 = document.querySelector('.icon-2') 
+        const bottlePep = document.querySelector('.pepsi-bottle') 
+        const goAnyMood = document.querySelector('.go-mood') 
+        const goAnyMood2 = document.querySelector('.go-mood-2') 
+        
+            const darkMode = () => {
+                document.body.classList.toggle('dark-them')
+            }
+
+        icon.onclick = function() {     
+            if(document.body.classList.contains('dark-them')){
+                icon.src = "img/moon.png"
+                bottlePep.src = "img/nel.png"
+                goAnyMood.textContent = " - Go Night Mode"
+                goAnyMood.style.color = "#000";
+            }else{
+                icon.src = "img/sun.png"
+                bottlePep.src = "img/kala.png"
+                goAnyMood.textContent = " - Go Day Mode"
+                goAnyMood.style.color = "#fff";
+            }
+
+        }
+        
+        const changeColor = () => {
+            document.body.classList.contains('dark-them')
+        } 
+        
+        icon.addEventListener('click', () => {
+   
+
+            setDarkMode = localStorage.getItem('dark-them')
+
+            if(setDarkMode !== "on") {
+                darkMode()
+
+                setDarkMode = localStorage.setItem( 'dark-them',  'on')
+            }
+            else {
+                darkMode()
+
+                setDarkMode = localStorage.setItem( 'dark-them',  null)
+            }
+        })
+
+        let setDarkMode = localStorage.getItem('dark-them')
+
+        if(setDarkMode === 'on') {
+            darkMode()
+            icon.src = "img/sun.png"
+            bottlePep.src = "img/kala.png"
+            goAnyMood.textContent = " - Go Day Mode"
+            goAnyMood.style.color = "#fff";
+        }
+
+        // icon2.addEventListener('click', () => {
+        //     document.body.classList.toggle('combinator-mode')
+        //     if(document.body.classList.contains('combinator-mode')){
+        //         bottlePep.src = "img/sada.png"
+        //         icon2.src = "img/sun.png"
+        //         goAnyMood2.textContent = " - Go Day Mode"
+        //         goAnyMood2.style.color = '#fff';
+        //     }else{
+        //         icon2.src = "img/combination.png"
+        //         bottlePep.src = "img/nel.png"
+        //         goAnyMood2.textContent = " - Go Combinator Mode"
+        //         goAnyMood2.style.color = '#000';
+        //     }
+
+            
+        //     if(document.body.classList.contains('dark-them')){
+        //         icon2.src = "img/moon.png"
+        //         document.body.classList.remove('dark-them')
+
+        //     }else{
+        //         document.body.classList.toggle('dark-them')
+        //         icon2.src = "img/combination.png"
+        //     }
+        // })
+
+
+
+
+
+    </script>
+
+</body>
+</html>
